@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Todo list</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <ion-toolbar color="secondary">
+    <ion-input [(ngModel)]="input" placeholder="add an item"></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="add(input)" [disabled]="!input">Add</ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+  <ion-list>
+    <ion-item *ngFor = "let todo of todos" [class.done]= "todo.status">
+      <ion-buttons slot="start">
+        <ion-checkbox [checked]= "todo.status" (ionChange)="update(todo)"></ion-checkbox>
+      </ion-buttons>
+      
+      <ion-label>{{todo.name}}</ion-label>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="delete(todo)" *ngIf="todo.status">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      
+      
+    </ion-item>
+    
+  </ion-list>
+  
+</ion-content>
