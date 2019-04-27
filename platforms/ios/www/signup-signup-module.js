@@ -89,16 +89,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../auth.service */ "./src/app/auth.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
 
 
 
 
 
 var SignupPage = /** @class */ (function () {
-    function SignupPage(afAuth, formBuilder, router) {
+    function SignupPage(afAuth, formBuilder, router, toastController) {
         this.afAuth = afAuth;
         this.formBuilder = formBuilder;
         this.router = router;
+        this.toastController = toastController;
     }
     SignupPage.prototype.ngOnInit = function () {
         this.signUpForm = this.formBuilder.group({
@@ -112,10 +115,30 @@ var SignupPage = /** @class */ (function () {
             .then(function (response) {
             console.log(response);
             //successful
-            _this.router.navigate(['/home']);
+            _this.router.navigate(['/list']);
         })
             .catch(function (error) {
             console.log(error);
+            _this.presentToast();
+        });
+    };
+    SignupPage.prototype.presentToast = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var toast;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.toastController.create({
+                            message: 'this email has been used please try another email',
+                            position: 'middle',
+                            showCloseButton: true,
+                            color: 'warning'
+                        })];
+                    case 1:
+                        toast = _a.sent();
+                        toast.present();
+                        return [2 /*return*/];
+                }
+            });
         });
     };
     SignupPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -126,7 +149,8 @@ var SignupPage = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ToastController"]])
     ], SignupPage);
     return SignupPage;
 }());

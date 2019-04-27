@@ -13,11 +13,7 @@ export class AppComponent {
   public user: any;
   public email: string;
   public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
+    
     {
       title: 'List',
       url: '/list',

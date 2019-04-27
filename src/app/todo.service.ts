@@ -4,8 +4,9 @@ import { Observable } from 'rxjs';
 import { AppComponent } from './app.component';
 import { map } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AuthService} from './auth.service';
-import { Router} from '@angular/router';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { SignoutPage } from './signout/signout.page';
 export interface Todo {
   name: string;
   status: boolean;
@@ -18,24 +19,30 @@ export class TodoService {
   private todos: Observable<Todo[]>;
   private email: string;
   constructor(db: AngularFirestore, appComponent: AppComponent,
-     afth: AngularFireAuth,private autherService: AuthService, private router: Router) {
+    afth: AngularFireAuth, private autherService: AuthService, private router: Router) {
     //this.email = appComponent.email;
-    //console.log(this.email);
-    try{
-    this.todosCollection = db.collection<Todo>(afth.auth.currentUser.email);
-    this.todos = this.todosCollection.snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        });
-      })
-    );}catch(ex){
-    this.autherService.signOut()
-    .then(() => {this.router.navigate(['/signup']); })
-    .catch();
+    
+    
+    try {
+      console.log('todoservice hey');
+      this.todosCollection = db.collection<Todo>(afth.auth.currentUser.email);
+      this.todos = this.todosCollection.snapshotChanges().pipe(
+        map(actions => {
+          return actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          });
+        })
+      );
+    } catch (ex) {
+      this.signOut();
     }
+  }
+  signOut() {
+    this.autherService.signOut()
+      .then(() => { this.router.navigate(['/signup']); })
+      .catch();
   }
   getTodos() {
     return this.todos;
@@ -51,5 +58,9 @@ export class TodoService {
   }
   updateTodo(todo: Todo, id: string) {
     return this.todosCollection.doc(id).update(todo);
+  }
+  getAll() {
+
+    return this.todos;
   }
 }

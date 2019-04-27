@@ -28,7 +28,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
     StatusBar,
     SplashScreen,
     AngularFirestore,
-    AppComponent,
+    AppComponent, 
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -1,22 +1,20 @@
 <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-      </ion-buttons>
       <ion-title>Todo list</ion-title>
+      <ion-button slot="end" (click) = "signOut()">sign out</ion-button>
     </ion-toolbar>
   </ion-header>
 
 <ion-content>
   <ion-toolbar color="secondary">
-    <ion-input [(ngModel)]="input" placeholder="add an item"></ion-input>
+    <ion-input [(ngModel)]="input" placeholder="add an item" id = "inputItem"></ion-input>
     <ion-buttons slot="end">
       <ion-button (click)="add(input)" [disabled]="!input">Add</ion-button>
     </ion-buttons>
     
   </ion-toolbar>
   <ion-list>
-    <ion-item *ngFor = "let todo of todos" [class.done]= "todo.status">
+    <ion-item *ngFor = "let todo of items  | async" [class.done]= "todo.status">
       <ion-buttons slot="start">
         <ion-checkbox [checked]= "todo.status" (ionChange)="update(todo)"></ion-checkbox>
       </ion-buttons>
