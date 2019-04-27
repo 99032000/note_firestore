@@ -114,15 +114,23 @@ var ListPage = /** @class */ (function () {
             if (user) {
                 _this.selectItems(user.email);
                 _this.email = user.email;
+                _this.localNotification.schedule({
+                    id: 1,
+                    title: 'Welcome',
+                    text: user.email,
+                    // data: { mydata: 'my data'},
+                    foreground: true
+                });
             }
         });
-        this.localNotification.schedule({
-            id: 1,
-            title: 'hello',
-            text: 'hello notification',
-            data: { mydata: 'my data' },
-            foreground: true
-        });
+        // this.itemsDoc.collection<Todo>('todo').ref.where('status','==',false
+        // this.localNotification.schedule({
+        //   id:1,
+        //   title: 'Welcome',
+        //   text: this.email,
+        //   // data: { mydata: 'my data'},
+        //   foreground : true
+        // });
     }
     ListPage.prototype.ngOnInit = function () {
     };

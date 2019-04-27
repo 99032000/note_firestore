@@ -90,9 +90,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/local-notifications/ngx */ "./node_modules/@ionic-native/local-notifications/ngx/index.js");
-
-
 
 
 
@@ -100,13 +97,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SigninPage = /** @class */ (function () {
-    function SigninPage(afAuth, formBuilder, router, toastController, plt, localNotification) {
+    function SigninPage(afAuth, formBuilder, router, toastController) {
         this.afAuth = afAuth;
         this.formBuilder = formBuilder;
         this.router = router;
         this.toastController = toastController;
-        this.plt = plt;
-        this.localNotification = localNotification;
     }
     SigninPage.prototype.ngOnInit = function () {
         this.signInForm = this.formBuilder.group({
@@ -121,9 +116,6 @@ var SigninPage = /** @class */ (function () {
             console.log(response);
             //successful
             _this.router.navigate(['/list']);
-            _this.localNotification.schedule({
-                title: 'hello'
-            });
         })
             .catch(function (error) {
             console.log(error);
@@ -158,9 +150,7 @@ var SigninPage = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ToastController"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["Platform"],
-            _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_6__["LocalNotifications"]])
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ToastController"]])
     ], SigninPage);
     return SigninPage;
 }());

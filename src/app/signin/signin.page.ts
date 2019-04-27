@@ -3,8 +3,7 @@ import { AuthService } from '../auth.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
-import { Platform } from '@ionic/angular';
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.page.html',
@@ -18,8 +17,7 @@ export class SigninPage implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private toastController: ToastController,
-    private plt: Platform,
-    private localNotification: LocalNotifications) { }
+    ) { }
 
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
@@ -33,9 +31,7 @@ export class SigninPage implements OnInit {
         console.log(response);
         //successful
         this.router.navigate(['/list']);
-        this.localNotification.schedule({
-          title:'hello'
-        });
+        
       })
       .catch((error) => {
         console.log(error);

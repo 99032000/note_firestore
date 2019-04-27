@@ -30,17 +30,25 @@ export class ListPage implements OnInit {
       if (user) {
         this.selectItems(user.email);
         this.email = user.email;
+        this.localNotification.schedule({
+          id:1,
+          title: 'Welcome',
+          text: user.email,
+          // data: { mydata: 'my data'},
+          foreground : true
+    
+        });
       }
     });
     // this.itemsDoc.collection<Todo>('todo').ref.where('status','==',false
-    this.localNotification.schedule({
-      id:1,
-      title: 'Welcome',
-      text: this.email+'\n',
-      // data: { mydata: 'my data'},
-      foreground : true
+    // this.localNotification.schedule({
+    //   id:1,
+    //   title: 'Welcome',
+    //   text: this.email,
+    //   // data: { mydata: 'my data'},
+    //   foreground : true
 
-    });
+    // });
   }
 
   ngOnInit() {
