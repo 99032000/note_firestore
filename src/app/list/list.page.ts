@@ -56,9 +56,7 @@ export class ListPage implements OnInit {
   }
   selectItems(email: string) {
     this.itemsDoc = this.afs.doc<Item>('users/' + email);
-    this.items = this.itemsDoc.collection<Todo>('todo').valueChanges();
-    // // turn on logging if you want to see how the requests are sent
-    // this.groceryItemsDoc.collection<GroceryItem>('GroceryItems').auditTrail().subscribe(console.log);
+    this.items = this.itemsDoc.collection<Todo>('todo', ref => ref.orderBy('status')).valueChanges();
   }
   add(name: string) {
     const id = this.afs.createId();

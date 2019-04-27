@@ -57,7 +57,7 @@ var ListPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar>\n      <ion-title>Todo list</ion-title>\n      <ion-button slot=\"end\" (click) = \"signOut()\">sign out</ion-button>\n    </ion-toolbar>\n  </ion-header>\n\n<ion-content>\n  <ion-toolbar color=\"secondary\">\n    <ion-input [(ngModel)]=\"input\" placeholder=\"add an item\" id = \"inputItem\"></ion-input>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"add(input)\" [disabled]=\"!input\">Add</ion-button>\n    </ion-buttons>\n    \n  </ion-toolbar>\n  <ion-list>\n    <ion-item *ngFor = \"let todo of items  | async\" [class.done]= \"todo.status\">\n      <ion-buttons slot=\"start\">\n        <ion-checkbox [checked]= \"todo.status\" (ionChange)=\"update(todo)\"></ion-checkbox>\n      </ion-buttons>\n      \n      <ion-label>{{todo.name}}</ion-label>\n      <ion-buttons slot=\"end\">\n        <ion-button fill=\"clear\" (click)=\"delete(todo)\" *ngIf=\"todo.status\">\n          <ion-icon name=\"close\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n      \n      \n    </ion-item>\n    \n  </ion-list>\n  \n</ion-content>\n"
+module.exports = "<ion-header>\n    <ion-toolbar>\n      <ion-title>Todo list</ion-title>\n      <ion-button slot=\"end\" (click) = \"signOut()\">sign out</ion-button>\n    </ion-toolbar>\n  </ion-header>\n\n<ion-content>\n  <ion-toolbar color=\"secondary\">\n    <ion-input [(ngModel)]=\"inputItem\" placeholder=\"add an item\" name = \"inputItem\"></ion-input>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"add(inputItem)\" [disabled]=\"!inputItem\">Add</ion-button>\n    </ion-buttons>\n    \n  </ion-toolbar>\n  <ion-list>\n    <ion-item *ngFor = \"let todo of items  | async\" [class.done]= \"todo.status\">\n      <ion-buttons slot=\"start\">\n        <ion-checkbox [checked]= \"todo.status\" (ionChange)=\"update(todo)\"></ion-checkbox>\n      </ion-buttons>\n      \n      <ion-label>{{todo.name}}</ion-label>\n      <ion-buttons slot=\"end\">\n        <ion-button fill=\"clear\" (click)=\"delete(todo)\" *ngIf=\"todo.status\">\n          <ion-icon name=\"close\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n      \n      \n    </ion-item>\n    \n  </ion-list>\n  \n</ion-content>\n"
 
 /***/ }),
 
@@ -108,8 +108,6 @@ var ListPage = /** @class */ (function () {
         this.router = router;
         this.plt = plt;
         this.localNotification = localNotification;
-        //todos: Todo[];
-        this.inputItem = '';
         this.afAuth.auth.onAuthStateChanged(function (user) {
             if (user) {
                 _this.selectItems(user.email);
