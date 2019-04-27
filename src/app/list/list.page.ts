@@ -16,13 +16,13 @@ import { Platform } from '@ionic/angular';
 })
 export class ListPage implements OnInit {
   //todos: Todo[];
-  inputItem = '';
+  inputItem: string;
   itemsDoc: AngularFirestoreDocument<Item>;
   items: Observable<Todo[]>;
   email: string;
   constructor(public afs: AngularFirestore,
-    public afAuth: AngularFireAuth, 
-    public authService: AuthService, 
+    public afAuth: AngularFireAuth,
+    public authService: AuthService,
     public router: Router,
     private plt: Platform,
     private localNotification: LocalNotifications) {
@@ -31,12 +31,12 @@ export class ListPage implements OnInit {
         this.selectItems(user.email);
         this.email = user.email;
         this.localNotification.schedule({
-          id:1,
+          id: 1,
           title: 'Welcome',
           text: user.email,
           // data: { mydata: 'my data'},
-          foreground : true
-    
+          foreground: true
+
         });
       }
     });

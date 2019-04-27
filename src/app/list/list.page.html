@@ -7,9 +7,9 @@
 
 <ion-content>
   <ion-toolbar color="secondary">
-    <ion-input [(ngModel)]="input" placeholder="add an item" id = "inputItem"></ion-input>
+    <ion-input [(ngModel)]="inputItem" placeholder="add an item" name = "inputItem"></ion-input>
     <ion-buttons slot="end">
-      <ion-button (click)="add(input)" [disabled]="!input">Add</ion-button>
+      <ion-button (click)="add(inputItem)" [disabled]="!inputItem">Add</ion-button>
     </ion-buttons>
     
   </ion-toolbar>
