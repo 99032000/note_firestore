@@ -91,18 +91,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//import { Todo, TodoService } from '../todo.service'
 var SignoutPage = /** @class */ (function () {
     function SignoutPage(autherService, router) {
         this.autherService = autherService;
         this.router = router;
     }
     SignoutPage.prototype.ngOnInit = function () {
-    };
-    SignoutPage.prototype.signOut = function () {
-        var _this = this;
-        this.autherService.signOut()
-            .then(function () { _this.router.navigate(['/signup']); })
-            .catch();
     };
     SignoutPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

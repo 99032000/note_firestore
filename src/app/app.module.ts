@@ -13,7 +13,7 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {environment} from '../environments/environment';
 import { AngularFirestore } from 'angularfire2/firestore';
-
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,7 +28,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
     StatusBar,
     SplashScreen,
     AngularFirestore,
-    AppComponent, 
+    AppComponent,
+    LocalNotifications,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

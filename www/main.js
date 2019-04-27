@@ -1093,6 +1093,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
 /* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/local-notifications/ngx */ "./node_modules/@ionic-native/local-notifications/ngx/index.js");
+
 
 
 
@@ -1125,6 +1127,7 @@ var AppModule = /** @class */ (function () {
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
                 angularfire2_firestore__WEBPACK_IMPORTED_MODULE_12__["AngularFirestore"],
                 _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
+                _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_13__["LocalNotifications"],
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
@@ -1206,7 +1209,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/chenpengyu/Desktop/cross-platform-firstApp-master/note/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/chenpengyu/Desktop/cross-platform-firstApp-master/note copy/src/main.ts */"./src/main.ts");
 
 
 /***/ })
