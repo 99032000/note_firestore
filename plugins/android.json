@@ -17,6 +17,9 @@
       "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
       "PACKAGE_NAME": "io.ionic.starter"
     },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
@@ -27,5 +30,9 @@
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    }
+  }
 }

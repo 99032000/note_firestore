@@ -134,9 +134,7 @@ var ListPage = /** @class */ (function () {
     };
     ListPage.prototype.selectItems = function (email) {
         this.itemsDoc = this.afs.doc('users/' + email);
-        this.items = this.itemsDoc.collection('todo').valueChanges();
-        // // turn on logging if you want to see how the requests are sent
-        // this.groceryItemsDoc.collection<GroceryItem>('GroceryItems').auditTrail().subscribe(console.log);
+        this.items = this.itemsDoc.collection('todo', function (ref) { return ref.orderBy('status'); }).valueChanges();
     };
     ListPage.prototype.add = function (name) {
         var _this = this;
